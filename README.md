@@ -2,20 +2,23 @@
 
 ## **Utilização**
 
-Para utilizar as mascaras no seu input basta colar  as linhas de código abaixo no seu html.
+Para utilizar as máscaras no seu input basta colar  as linhas de código abaixo no seu html.
 ```html
-<!-- jquery-1.2.6.pack.js -->
-        <script type="text/javascript" src="https://www.geradorcpf.com/assets/js/jquery-1.2.6.pack.js"></script>
+
+    <!-- jquery-1.2.6.pack.js -->
+    <script type="text/javascript" src="https://www.geradorcpf.com/assets/js/jquery-1.2.6.pack.js"></script>
     
     <!-- jquery.maskedinput-1.1.4.pack.js -->
     <script type="text/javascript" src="https://www.geradorcpf.com/assets/js/jquery.maskedinput-1.1.4.pack.js"></script>
     
     <!--Arquivo de configuração das masks-->
     <script src="js/mask.js"></script>
+
 ```
 
-Em seguida, basta definir um input, o qual irá receber a mascara, e passar uma das id que já esta registrada no 
-arquivo *mask.js*, vejamos:
+Em seguida, basta criar uma tag **input** e passar uma das id's que já estão registradas no arquivo **mask.js**, vejamos:
+
+No Arquivo **mask.js**:
 
 ```javascript
     $(document).ready(function(){
@@ -30,14 +33,47 @@ arquivo *mask.js*, vejamos:
         $("#mobile_phone").mask("(99) 99999-9999");
     });
 ```
-No Arquivo html:
+
+No Arquivo **html**:
+
 ```html
     <!--No arquivo html-->
     <input name = "cpf" type="text" id = "cpf">
 ```
 
-Resultado:
-
-GIF
+### Resultado:
 
 ![Alt Text](https://media.giphy.com/media/McyYNoWGYaOkWypMgF/giphy.gif)
+
+## Criando uma Mascara
+
+Para criar uma mascara, primeiro precisamos entender que:
+
+- A mascara só suporta números, mascara com combinações de letras não irão funcionar;
+
+Com isso em mente, vamos agora para o arquivo **mask.js** e no escopo de function, onde já existe registro de outras máscaras, iremos registrar uma nova linha, vejamos:
+
+```javascript
+    $("#").mask("");
+```    
+
+Após o **#** iremos definir o nome do identificador da mascara. Em seguida, dentro das aspas duplas, vamos inserir a forma que nossa mascara deve se comportar, para isso precisamos seguir uma regra:
+
+- a identificação do digito da máscara é representado pelo número **9**, ou seja, onde tiver o número **9** será onde haverá um digito no input;
+
+```javascript
+    $("#exemplo").mask("9.9.9.9.9");
+```    
+
+Para este exemplo, defini o nome da minha máscara como **exemplo** e ela irá receber os valores(onde houver 9 será um número inteiro) **9.9.9.9.9**.
+
+Agora, no Arquivo **html**:
+
+```html
+    <!--No arquivo html-->
+    <input name = "exemplo" type="text" id = "exemplo">
+```
+
+### Resultado:
+
+![Alt Text](https://media.giphy.com/media/j38dsd71fjzSx4dgZq/giphy.gif)
