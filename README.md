@@ -49,7 +49,7 @@ No Arquivo **html**:
 
 Para criar uma mascara, primeiro precisamos entender que:
 
-- A mascara só suporta números, mascara com combinações de letras não irão funcionar;
+- A mascara só suporta números inteiros;
 
 Com isso em mente, vamos agora para o arquivo **mask.js** e no escopo de function, onde já existe registro de outras máscaras, iremos registrar uma nova linha, vejamos:
 
